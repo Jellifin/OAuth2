@@ -68,6 +68,11 @@ open class OAuth2Base: OAuth2Securable {
 	public final var tokenURL: URL? {
 		get { return clientConfig.tokenURL }
 	}
+
+    /// The URL string where we can exchange a refresh token for a token; if nil `authURL` will be used.
+    public final var refreshURL: URL? {
+        get { return clientConfig.refreshTokenURL }
+    }
 	
 	/// The scope currently in use.
 	public final var scope: String? {

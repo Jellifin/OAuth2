@@ -28,6 +28,9 @@ open class OAuth2ClientConfig {
 	
 	/// The URL where we can exchange a code for a token.
 	public final var tokenURL: URL?
+
+    /// The URL where we can exchange a refresh token for a token.
+    public final var refreshTokenURL: URL?
 	
 	/// Where a logo/icon for the app can be found.
 	public final var logoURL: URL?
@@ -139,6 +142,10 @@ open class OAuth2ClientConfig {
 		if let assume = settings["token_assume_unexpired"] as? Bool {
 			accessTokenAssumeUnexpired = assume
 		}
+
+        if let refreshTokenURLString = settings["refresh_token_uri"] as? String {
+            refreshTokenURL = URL(string: refreshTokenURLString)
+        }
 	}
 	
 	
